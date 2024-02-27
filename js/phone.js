@@ -48,6 +48,8 @@ const displayPhones = phones => {
     // 4. append child
     phoneContainer.appendChild(phoneCard)
    });
+    // hide loading spenner
+    toggleLoadingSpener(false)
 }
 
 
@@ -59,11 +61,22 @@ const handleSearch = () => {
     loadPhone(searchText)
 };
 
+
+// handle search recape 
 const handleSearch2 = () => {
+    toggleLoadingSpener(true)
     const searchField = document.getElementById('search-field2');
     const searchText = searchField.value;
     loadPhone(searchText)
 }
 
+const toggleLoadingSpener = (isLoading)=>{
+    const loadingSpenner = document.getElementById('loading-spenner');
+    if(isLoading){
+        loadingSpenner.classList.remove('hidden')
+    }else{
+        loadingSpenner.classList.add('hidden')
+    }
+}
 
 // loadPhone()
